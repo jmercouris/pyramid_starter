@@ -6,7 +6,7 @@ PyramidStarter is a simple application that you can clone and start in its' enti
   - Virtualbox (Optional- comes with vagrant)
 	
 ## Quickstart
-	```vagrant up```
+	`vagrant up`
 	
 	Check http://localhost:4567
 
