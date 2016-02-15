@@ -1,5 +1,9 @@
 # PyramidStarter
 ===============================
+## Requirements
+  - Vagrant (https://www.vagrantup.com)
+  - Virtualbox (Optional- comes with vagrant)
+	
 Quickstart:
 	```vagrant up```
 	
@@ -8,9 +12,6 @@ Quickstart:
 ## How to clone, cloning all submodules
 git clone --recursive
 
-## Requirements
-  - Vagrant
-  - Virtualbox
 
 # Available Arguments
 flag + options
