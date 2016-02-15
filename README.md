@@ -33,6 +33,9 @@ All standard argumenst must come after the "up" string. Consult the examples bel
 	Start a named environment in production
 	vagrant --deploy-mode="production" --webserver-machine-name="webserver_name" up --provider="digital_ocean"
 	
+## Deploying to Production
+To deploy to production you'll have to setup your own salt-states for production. The scaffolds to allow you to do so are in /salt/base/webserver_production. I reccomend you take a look at them and at the salt documentation. A great place to start is also to look at the states created in /salt/base/webserver_development.
+
 ## Vagrant digital ocean integration
 https://www.digitalocean.com/community/tutorials/how-to-use-digitalocean-as-your-provider-in-vagrant-on-an-ubuntu-12-10-vps
 
