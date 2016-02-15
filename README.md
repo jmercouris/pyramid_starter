@@ -1,5 +1,5 @@
 # PyramidStarter
-===============================
+________________
 PyramidStarter is a simple application that you can clone and start in its' entirety to get a feel for a pyramid project and the setup. You can extend it and develop your own application, eventually deploying to production.
 ## Requirements
   - Vagrant (https://www.vagrantup.com)
