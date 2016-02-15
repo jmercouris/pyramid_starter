@@ -36,6 +36,31 @@ All standard argumenst must come after the "up" string. Consult the examples bel
 ## Deploying to Production
 To deploy to production you'll have to setup your own salt-states for production. The scaffolds to allow you to do so are in /salt/base/webserver_production. I reccomend you take a look at them and at the salt documentation. A great place to start is also to look at the states created in /salt/base/webserver_development.
 
+## The Directory Structure
+|-salt !! The Salt Directory
+|---base
+|-----webserver !! Configuration Common to proudction and development
+|-----webserver_development !! Configuration specific to development
+|-------scripts 
+|-----webserver_production !! Configuration Specific to Production
+|---etc !! Minion Configuration Files
+|---pillar !! Minion specific data (See salt documentation)
+|-source !! The Pyramid Scaffold Directory
+|---build
+|-----bdist.linux-x86_64
+|-----lib.linux-x86_64-2.7
+|-------source
+|---------scripts
+|---------static
+|---------templates
+|---dist
+|---source
+|-----scripts
+|-----static
+|-----templates
+|---source.egg-info
+																  
+
 ## Vagrant digital ocean integration
 https://www.digitalocean.com/community/tutorials/how-to-use-digitalocean-as-your-provider-in-vagrant-on-an-ubuntu-12-10-vps
 
@@ -140,7 +165,7 @@ four you'll want/need to start with.
 
 ### Minion Config
 
-The minion config is very simple, which is located in ``saltstack/etc/minion``
+The minion config is very simple, which is located in ``salt/etc/minion``
 ([see file](saltstack/etc/minion)):
 
 ```yaml
@@ -150,12 +175,12 @@ file_client: local
 ## Where your salt states & files are located
 file_roots:
   base:
-    - /vagrant/saltstack/salt
+    - /vagrant/salt
 
 ## Where your Pillar data is located (see README.md for more details)
 pillar_roots:
   base:
-    - /vagrant/saltstack/pillar
+    - /vagrant/salt/pillar
 ```
 
 What each section means:
@@ -170,7 +195,7 @@ system.
 ```yaml
 file_roots:
   base:
-    - /vagrant/saltstack/salt
+    - /vagrant/salt
 ```
 
 The default location salt will look at is ``/srv/salt``. Vagrant will make a 
@@ -182,11 +207,11 @@ look at the shared folder.
 ```yaml
 pillar_roots:
   base:
-    - /vagrant/saltstack/pillar
+    - /vagrant/salt/pillar
 ```
 
 Similar to ``file_roots``, by default Salt will look at ``/srv/pillar`` for it's 
-pillar data. Instead lets have this point to ``/vagrant/saltstack/pillar``.
+pillar data. Instead lets have this point to ``/vagrant/salt/pillar``.
 
 ### Top.sls
 
@@ -195,7 +220,7 @@ packages, configures files, etc) has a ``top.sls`` file in the ``file_roots``
 directory. Because you're only managing this one Vagrant VM isntead of several
 servers, the ``top.sls`` file is very straight forward (but still required).
 
-File ``saltstack/salt/top.sls``:
+File ``salt/salt/top.sls``:
 
 ```yaml 
 base:
@@ -208,7 +233,7 @@ we want to apply some state files to all the servers. Sicne you only have one
 VM, ``*`` is a safe match regardless of what your VM is named.
 
 ``- common`` says I want to include the set of states stored in either
-``saltstack/salt/common.sls`` file or ``saltstack/salt/common/init.sls`` file.
+``salt/base/common.sls`` file or ``salt/base/common/init.sls`` file.
 
 If you added another set of states in another file like ``saltstack/salt/apache.sls``
 you would have a ``saltstack/salt/top.sls`` file that looked like this:
