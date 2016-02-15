@@ -5,19 +5,19 @@ PyramidStarter is a simple application that you can clone and start in its' enti
   - Vagrant (https://www.vagrantup.com)
   - Virtualbox (Optional- comes with vagrant)
 	
-# Quickstart
+## Quickstart
 	```vagrant up```
 	
 	Check http://localhost:4567
 
-# Available Arguments
+## Available Arguments
 flag + options
 
     --webserver-machine-name (string)
     --deploy-mode (production, development)
     --provider (virtualbox, digital_ocean)
 
-# Example initialization commands
+## Example initialization commands
 How to format an argument
 
 vagrant + arguments + up --provider="xyz"
@@ -33,7 +33,7 @@ All standard argumenst must come after the "up" string. Consult the examples bel
 	Start a named environment in production
 	vagrant --deploy-mode="production" --webserver-machine-name="webserver_name" up --provider="digital_ocean"
 	
-# Vagrant digital ocean integration
+## Vagrant digital ocean integration
 https://www.digitalocean.com/community/tutorials/how-to-use-digitalocean-as-your-provider-in-vagrant-on-an-ubuntu-12-10-vps
 
 ## Basic Overview
@@ -49,7 +49,7 @@ Vagrant will then call the Salt provider, which will install Salt & run it. Salt
 will install Apache, PHP, and MySQL, set their configuration files, and then 
 start their services.
 
-### Masterless Mode
+## Masterless Mode
 
 Salt traditionally runs in a Master & Minion configuration for managing multiple
 servers. Since most vagrant projects just use one virtual machine, having a 
@@ -185,7 +185,7 @@ pillar_roots:
 Similar to ``file_roots``, by default Salt will look at ``/srv/pillar`` for it's 
 pillar data. Instead lets have this point to ``/vagrant/saltstack/pillar``.
 
-## Top.sls
+### Top.sls
 
 Every salt environment that uses states (which a state is how salt installs 
 packages, configures files, etc) has a ``top.sls`` file in the ``file_roots``
@@ -227,7 +227,7 @@ From here, everything in the [salt documentation on Salt States](http://salt.rea
 should work for you. The [list of available salt states](http://salt.readthedocs.org/en/latest/ref/states/all/index.html) 
 is really helpful.
 
-## Debugging
+### Debugging
 
 Sometimes you'll want to debug your salt states on your VM. The easiest way to 
 do that is to ``vagrant ssh`` and run salt-call:
