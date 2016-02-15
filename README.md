@@ -5,14 +5,10 @@ PyramidStarter is a simple application that you can clone and start in its' enti
   - Vagrant (https://www.vagrantup.com)
   - Virtualbox (Optional- comes with vagrant)
 	
-Quickstart:
+# Quickstart
 	```vagrant up```
 	
 	Check http://localhost:4567
-
-## How to clone, cloning all submodules
-git clone --recursive
-
 
 # Available Arguments
 flag + options
