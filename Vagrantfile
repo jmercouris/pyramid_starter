@@ -70,19 +70,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     web.vm.network "private_network", ip: "10.10.10.10"
-    # web.vm.synced_folder "salt", "/srv/salt"
+    web.vm.synced_folder "salt", "/srv/salt"
 
-    # # Salt Provisioner
-    # web.vm.provision :salt do |salt|
-    #   # Relative location of configuration file to use for minion
-    #   salt.minion_config = "salt/etc/webserver_#{deploy_mode}.conf"
-    #   # Highstate basicly means "comapre the VMs current machine state against 
-    #   # what it should be and make changes if necessary".
-    #   salt.run_highstate = true
-    #   # Vagrant 1.7.4 Fix - alternatively use 1.7.2 and comment out the line below
-    #   salt.bootstrap_options = '-F -c /tmp/ -P'
-    #   # Run in verbose mode, so it will output all debug info to the console.
-    #   # salt.verbose = true
-    # end
+    # Salt Provisioner
+    web.vm.provision :salt do |salt|
+      # Relative location of configuration file to use for minion
+      salt.minion_config = "salt/etc/webserver_#{deploy_mode}.conf"
+      # Highstate basicly means "comapre the VMs current machine state against 
+      # what it should be and make changes if necessary".
+      salt.run_highstate = true
+      # Vagrant 1.7.4 Fix - alternatively use 1.7.2 and comment out the line below
+      salt.bootstrap_options = '-F -c /tmp/ -P'
+      # Run in verbose mode, so it will output all debug info to the console.
+      # salt.verbose = true
+    end
   end
 end
