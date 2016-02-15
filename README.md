@@ -37,50 +37,30 @@ All standard argumenst must come after the "up" string. Consult the examples bel
 To deploy to production you'll have to setup your own salt-states for production. The scaffolds to allow you to do so are in /salt/base/webserver_production. I reccomend you take a look at them and at the salt documentation. A great place to start is also to look at the states created in /salt/base/webserver_development.
 
 ## The Directory Structure
+```
 |-salt !! The Salt Directory
-
 |---base
-
 |-----webserver !! Configuration Common to proudction and development
-
 |-----webserver_development !! Configuration specific to development
-
 |-------scripts 
-
 |-----webserver_production !! Configuration Specific to Production
-
 |---etc !! Minion Configuration Files
-
 |---pillar !! Minion specific data (See salt documentation)
-
 |-source !! The Pyramid Scaffold Directory
-
 |---build
-
 |-----bdist.linux-x86_64
-
 |-----lib.linux-x86_64-2.7
-
 |-------source
-
 |---------scripts
-
 |---------static
-
 |---------templates
-
 |---dist
-
 |---source
-
 |-----scripts
-
 |-----static
-
 |-----templates
-
 |---source.egg-info
-																  
+```																  
 
 ## Vagrant digital ocean integration
 https://www.digitalocean.com/community/tutorials/how-to-use-digitalocean-as-your-provider-in-vagrant-on-an-ubuntu-12-10-vps
