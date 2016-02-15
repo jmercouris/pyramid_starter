@@ -38,26 +38,47 @@ To deploy to production you'll have to setup your own salt-states for production
 
 ## The Directory Structure
 |-salt !! The Salt Directory
+
 |---base
+
 |-----webserver !! Configuration Common to proudction and development
+
 |-----webserver_development !! Configuration specific to development
+
 |-------scripts 
+
 |-----webserver_production !! Configuration Specific to Production
+
 |---etc !! Minion Configuration Files
+
 |---pillar !! Minion specific data (See salt documentation)
+
 |-source !! The Pyramid Scaffold Directory
+
 |---build
+
 |-----bdist.linux-x86_64
+
 |-----lib.linux-x86_64-2.7
+
 |-------source
+
 |---------scripts
+
 |---------static
+
 |---------templates
+
 |---dist
+
 |---source
+
 |-----scripts
+
 |-----static
+
 |-----templates
+
 |---source.egg-info
 																  
 
