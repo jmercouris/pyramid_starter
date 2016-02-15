@@ -1,5 +1,0 @@
-      [paste.app_factory]
-      main = source:main
-      [console_scripts]
-      initialize_source_db = source.scripts.initializedb:main
-      
